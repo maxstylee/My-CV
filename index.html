@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="George Egnatashvili - Web Developer and Freelance Engineer Portfolio & Resume.">
+    <meta name="theme-color" content="#000000">
+    <title>George Egnatashvili | Web Developer Resume</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="./resume.css">
+</head>
+
+<body>
+    <!-- Sticky Glass Navigation -->
+    <header class="header-nav" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-brand">RESUME</a>
+
+            <button class="nav-mobile-btn" id="mobileToggle" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero / Profile Section -->
+    <section class="hero-section" id="home">
+        <!-- GPU-Accelerated Background Slideshow -->
+        <div class="hero-bg-slider" aria-hidden="true">
+            <div class="hero-slide active" style="background-image: url('./images/img1.png');"></div>
+            <div class="hero-slide" style="background-image: url('./images/img2.png');"></div>
+            <div class="hero-slide" style="background-image: url('./images/img3.png');"></div>
+            <div class="hero-slide" style="background-image: url('./images/img4.png');"></div>
+            <div class="hero-slide" style="background-image: url('./images/img5.png');"></div>
+            <div class="hero-slide" style="background-image: url('./images/img6.png');"></div>
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content-wrapper">
+            <div class="hero-grid">
+                <!-- Profile Information -->
+                <div class="hero-info">
+                    <div class="person-title">
+                        <h1 class="person-name">George Egnatashvili</h1>
+                        <p class="person-role">Web Developer | Freelance Engineer</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope contact-icon"></i>
+                            <a href="mailto:egnatashvili.gio@gmail.com" class="contact-text">egnatashvili.gio@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone contact-icon"></i>
+                            <a href="tel:+995571107127" class="contact-text">+995 571 107 127</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot contact-icon"></i>
+                            <span class="contact-text">Tbilisi, Georgia</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Icons & Viber QR Toggle -->
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/george-egnatashvili-51b237351/" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn">
+                            <img src="./images/Linkedin.png" alt="LinkedIn" width="22" height="22">
+                        </a>
+                        <a href="https://github.com/maxstylee" target="_blank" rel="noopener noreferrer" class="social-btn" title="GitHub">
+                            <img src="./images/Github.png" alt="GitHub" width="22" height="22">
+                        </a>
+                        <a href="https://www.instagram.com/gegnatashvili?igsh=ZDQ3enM2MWgwN3Fh" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">
+                            <img src="./images/instagram.png" alt="Instagram" width="22" height="22">
+                        </a>
+                        <a href="https://wa.me/995571107127" target="_blank" rel="noopener noreferrer" class="social-btn" title="WhatsApp">
+                            <img src="./images/svg/whatup.svg" alt="WhatsApp" width="22" height="22">
+                        </a>
+
+                        <!-- Viber Button with QR Popover -->
+                        <div class="viber-wrapper">
+                            <button type="button" id="viber" class="social-btn viber-trigger" title="Viber QR Code" aria-label="Open Viber QR Code">
+                                <img src="./images/viber.png" alt="Viber" width="22" height="22">
+                            </button>
+
+                            <div class="qr-popover hide" id="slide" role="dialog" aria-label="Viber Contact QR Code">
+                                <button type="button" class="qr-close-btn" id="closeQrBtn" aria-label="Close QR popup">&times;</button>
+                                <img src="./images/Viber-QR.png" alt="Scan Viber QR Code" width="180" height="180" loading="lazy">
+                                <p class="qr-caption">Scan to Connect on Viber</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Section 1: About Me -->
+        <section class="section-about" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-visual">
+                        <div class="visual-card">
+                            <img src="./images/working-img.png" alt="George coding setup" class="visual-img" width="560" height="380" loading="lazy">
+                            <div class="visual-glare"></div>
+                        </div>
+                    </div>
+
+                    <div class="about-content">
+                        <h2 class="section-title">About Me</h2>
+                        <div class="typewriter-container for-txt">
+                            <!-- Typewriter paragraphs will be dynamically animated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Experience & Key Projects -->
+        <section class="section-experience" id="experience">
+            <div class="container">
+                <div class="experience-header">
+                    <div class="section-badge">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>Featured Work & Impact</span>
+                    </div>
+                    <h2 class="section-title">Experience & Projects</h2>
+                    <p class="section-subtitle">Delivering high-performance architecture, business automation, and measurable revenue growth</p>
+                </div>
+
+                <div class="experience-grid">
+                    <!-- Project 1: Hotel Bar Menu & Admin Panel -->
+                    <div class="experience-card">
+                        <div class="exp-card-header">
+                            <div class="exp-role-meta">
+                                <span class="exp-company"><i class="fa-solid fa-hotel"></i> Premier Hotel & Hospitality</span>
+                                <h3 class="exp-title">Digital Bar Menu Architecture & Admin Panel</h3>
+                            </div>
+                            <div class="growth-badge">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                <span>+40% Sales Growth</span>
+                            </div>
+                        </div>
+
+                        <p class="exp-description">
+                            Engineered and designed an end-to-end interactive digital bar menu system accompanied by a real-time Admin Panel for one of the region's largest hotels. Optimized item discoverability, visual beverage presentation, and mobile ordering ergonomics — resulting in a proven <strong>40% revenue increase</strong> during that operating season.
+                        </p>
+
+                        <div class="exp-features">
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Real-Time Admin Panel for live pricing, dynamic stock status, and menu curation</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Ultra-fast mobile UI with seamless categorized beverage discovery</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>High-conversion layout engineered directly for guest engagement</span>
+                            </div>
+                        </div>
+
+                        <div class="exp-tags">
+                            <span class="tag">UI/UX Design</span>
+                            <span class="tag">Admin Panel</span>
+                            <span class="tag">Menu CMS</span>
+                            <span class="tag">Vanilla JS</span>
+                            <span class="tag">Sales Optimization</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: CRM Structure & Business Systems -->
+                    <div class="experience-card">
+                        <div class="exp-card-header">
+                            <div class="exp-role-meta">
+                                <span class="exp-company"><i class="fa-solid fa-cubes"></i> Business Systems & Engineering</span>
+                                <h3 class="exp-title">Custom CRM Structure & Workflow Architecture</h3>
+                            </div>
+                            <div class="growth-badge badge-blue">
+                                <i class="fa-solid fa-network-wired"></i>
+                                <span>Enterprise Architecture</span>
+                            </div>
+                        </div>
+
+                        <p class="exp-description">
+                            Architected comprehensive CRM database models, administrative dashboards, and operational pipelines tailored for service business workflows. Structured data flows, lead progression funnels, and scalable UI modules designed for fast daily operations and zero layout overhead.
+                        </p>
+
+                        <div class="exp-features">
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Custom CRM data modeling & relational client tracking structures</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Modular dashboard views for customer lifecycle & deal stages</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Clean, maintainable frontend architecture with robust state handling</span>
+                            </div>
+                        </div>
+
+                        <div class="exp-tags">
+                            <span class="tag">CRM Architecture</span>
+                            <span class="tag">System Design</span>
+                            <span class="tag">Data Modeling</span>
+                            <span class="tag">Workflow Automation</span>
+                            <span class="tag">Frontend Architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: 3D Skills Carousel -->
+        <section class="section-skills" id="skills">
+            <div class="skills-header">
+                <div class="section-badge">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Interactive 3D Showcase</span>
+                </div>
+                <h2 class="section-title">Skills & Technologies</h2>
+            </div>
+
+            <div class="skills-board board">
+                <!-- 3D Perspective Stage -->
+                <div class="carousel-stage">
+                    <div class="for-carousel">
+                        <!-- 8 3D Skill Cards -->
+                        <div class="skill-card for-html" style="--i:0;" tabindex="0">
+                            <div class="card-header">
+                                <img src="./images/html5-logo.png" alt="HTML5 Icon" class="card-icon" width="48" height="48" loading="lazy">
+                                <h3 class="card-title text-html">HTML5</h3>
+                            </div>
+                            <p class="card-desc">
+                                I build robust, semantic HTML structures, ensuring accessibility for all users, maintainable components, all while translating designs into functional web experiences.
+                            </p>
+                        </div>
+
+                        <div class="skill-card for-css" style="--i:1;" tabindex="0">
+                            <div class="card-header">
+                                <img src="./images/css3-icon-5.png" alt="CSS3 Icon" class="card-icon" width="48" height="48" loading="lazy">
+                                <h3 class="card-title text-css">CSS3</h3>
+                            </div>
+                            <p class="card-desc">
+                                Architect, optimize, and innovate complex CSS, ensuring responsive design across all devices, scalability, and peak performance.
+                            </p>
+                        </div>
+
+                        <div class="skill-card for-js" style="--i:2;" tabindex="0">
+                            <div class="card-header">
+                                <img src="./images/Javascript-icon.png" alt="JavaScript Icon" class="card-icon" width="48" height="48" loading="lazy">
+                                <h3 class="card-title text-js">JavaScript</h3>
+                            </div>
+                            <p class="card-desc">
+                                Think strategically, structure the page for scalability and accessibility, and integrate it with CSS, JavaScript, and modern frameworks.
+                            </p>
+                        </div>
+
+                        <div class="skill-card for-twcss" style="--i:3;" tabindex="0">
+                            <div class="card-header">
+                                <img src="./images/tailwindcss.png" alt="TailwindCSS Icon" class="card-icon" width="48" height="48" loading="lazy">
+                                <h3 class="card-title text-tw">TailwindCSS</h3>
+                            </div>
+                            <p class="card-desc">
+                                I architect scalable UI solutions by customizing the framework to our design system. My goal is to deliver efficient, accessible, and visually consistent user interfaces.
+                            </p>
+                        </div>
+
+                        <div class="skill-card for-jquery" style="--i:4;" tabindex="0">
+                            <div class="card-header">
+                                <img src="./images/jQuery.png" alt="jQuery Icon" class="card-icon" width="48" height="48" loading="lazy">
+                                <h3 class="card-title text-jquery">jQuery</h3>
+                            </div>
+                            <p class="card-desc">
+                                Optimizing performance, polishing code, unraveling complex issues, and weaving seamless integrations with solid utility patterns.
+                            </p>
+                        </div>
+
+                        <div class="skill-card for-ps" style="--i:5;" tabindex="0">
+                            <div class="card-header">
+                                <img src="./images/Photoshop.png" alt="Photoshop Icon" class="card-icon" width="48" height="48" loading="lazy">
+                                <h3 class="card-title text-ps">Photoshop</h3>
+                            </div>
+                            <p class="card-desc">
+                                Convert Design From PSD to HTML and CSS. Pixel Perfect asset extraction and precision layout realization.
+                            </p>
+                        </div>
+
+                        <div class="skill-card for-figma" style="--i:6;" tabindex="0">
+                            <div class="card-header">
+                                <img src="./images/Figma.png" alt="Figma Icon" class="card-icon" width="48" height="48" loading="lazy">
+                                <h3 class="card-title text-figma">Figma</h3>
+                            </div>
+                            <p class="card-desc">
+                                Convert Design From Figma to clean HTML and CSS. Translating components and design tokens into living web pages.
+                            </p>
+                        </div>
+
+                        <div class="skill-card for-adobe-XD" style="--i:7;" tabindex="0">
+                            <div class="card-header">
+                                <img src="./images/Adobe XD.png" alt="Adobe XD Icon" class="card-icon" width="48" height="48" loading="lazy">
+                                <h3 class="card-title text-xd">Adobe XD</h3>
+                            </div>
+                            <p class="card-desc">
+                                Convert Design From Adobe XD to modern HTML and CSS. Pixel-perfect fidelity, responsive layouts, and interactive fidelity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Central Illustration with Smooth Float Animation -->
+                <div class="coding-stage-container" aria-hidden="true">
+                    <img src="./images/coding.png" alt="Developer coding illustration" class="coding-character-img" width="380" height="380" loading="lazy">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer / Contact Destination -->
+    <footer class="site-footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>George Egnatashvili</h3>
+                <p>Web Developer &bull; Building modern, responsive, and performant web experiences.</p>
+            </div>
+            <div class="footer-contact">
+                <a href="mailto:egnatashvili.gio@gmail.com" class="footer-link">
+                    <i class="fa-solid fa-envelope"></i> egnatashvili.gio@gmail.com
+                </a>
+                <a href="tel:+995571107127" class="footer-link">
+                    <i class="fa-solid fa-phone"></i> +995 571 107 127
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optimized Pure Vanilla JavaScript (No jQuery required) -->
+    <script src="./resume.js"></script>
+</body>
+
+</html>
