@@ -22,7 +22,7 @@ A modern, high-performance, responsive personal resume and portfolio website bui
 ## 🚀 Getting Started Locally
 1. Clone the repository:
    ```bash
-   git clone https://github.com/maxstylee/resume.git
+   git clone https://github.com/maxstylee/My-CV.git
    ```
 2. Open `index.html` directly in any modern web browser, or serve it using a local dev server:
    ```bash
