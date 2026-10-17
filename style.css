@@ -707,7 +707,7 @@ a.contact-text:hover {
    6. Section 2: 3D Skills Carousel (High Performance GPU Animation)
    -------------------------------------------------------------------------- */
 .section-skills {
-  padding: 120px 0 100px;
+  padding: 120px 0 35px;
   background-color: var(--bg-primary);
   border-top: 1px solid rgba(255, 255, 255, 0.04);
   overflow: hidden;
@@ -812,12 +812,14 @@ a.contact-text:hover {
 }
 
 .card-header {
+  flex-direction: column;
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 5px;
 }
-
+.card-header h3 {
+  margin: 5px 0;
+}
 .card-icon {
     width: 70px;
     height: 70px;
@@ -833,6 +835,7 @@ a.contact-text:hover {
 }
 
 .card-desc {
+  text-align: center;
   font-size: 0.78rem;
   line-height: 1.55;
   color: var(--text-secondary);
@@ -863,11 +866,13 @@ a.contact-text:hover {
 }
 .text-tw { color: #06b6d4; }
 
-.for-jquery {
-  border-color: rgba(122, 157, 244, 0.3);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px -4px rgba(122, 157, 244, 0.35);
+.for-jquery,
+.for-react {
+  border-color: rgba(97, 218, 251, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px -4px rgba(97, 218, 251, 0.35);
 }
-.text-jquery { color: #7aa2f7; }
+.text-jquery,
+.text-react { color: #61dafb; }
 
 .for-ps {
   border-color: rgba(49, 168, 255, 0.3);
@@ -990,8 +995,8 @@ a.contact-text:hover {
 /* Tablets (max-width: 768px) */
 @media (max-width: 768px) {
   :root {
-    --carousel-radius: 230px;
-    --card-w: 160px;
+    --carousel-radius: 260px;
+    --card-w: 170px;
     --card-h: 220px;
   }
 
@@ -1062,6 +1067,7 @@ a.contact-text:hover {
   }
 
   .card-desc {
+    text-align: center;
     font-size: 0.72rem;
     line-height: 1.45;
   }
@@ -1072,8 +1078,8 @@ a.contact-text:hover {
   }
 
   .card-icon {
-    width: 32px;
-    height: 32px;
+    width: 60px;
+    height: 60px;
   }
 
   .card-title {
@@ -1083,13 +1089,16 @@ a.contact-text:hover {
   .coding-character-img {
     max-width: 240px;
   }
+  .skill-card{
+    padding: 18px 10px 0 10px;
+  }
 }
 
 /* Mobile Devices (max-width: 480px) */
 @media (max-width: 480px) {
   :root {
-    --carousel-radius: 180px;
-    --card-w: 135px;
+    --carousel-radius: 190px;
+    --card-w: 125px;
     --card-h: 195px;
   }
 
@@ -1102,19 +1111,21 @@ a.contact-text:hover {
   }
 
   .skill-card {
-    padding: 14px 10px;
+    padding: 10px 10px 0 10px;
     border-radius: 14px;
   }
 
   .card-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 4px;
   }
-
+  .card-header h3{
+    margin: 5px 0;
+ }
   .card-icon {
-    width: 26px;
-    height: 26px;
+    width: 50px;
+    height: 50px;
   }
 
   .card-title {
@@ -1122,7 +1133,8 @@ a.contact-text:hover {
   }
 
   .card-desc {
-    font-size: 0.66rem;
+    text-align: center;
+    font-size: 12px;
     line-height: 1.35;
   }
 
