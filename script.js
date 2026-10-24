@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
      -------------------------------------------------------------------------- */
   const initStickyHeader = () => {
     const header = document.getElementById('navbar');
+    const navMenu = document.getElementById('navMenu');
     if (!header) return;
 
     let lastScrollY = window.scrollY;
@@ -44,6 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
         header.classList.add('nav-scrolled');
       } else {
         header.classList.remove('nav-scrolled');
+      }
+
+      // If mobile menu is open, never hide the header
+      if (navMenu && navMenu.classList.contains('open')) {
+        header.classList.remove('nav-hidden');
+        lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+        ticking = false;
+        return;
       }
 
       // Hide when scrolling down, show when scrolling up
@@ -74,33 +83,111 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* --------------------------------------------------------------------------
-     3. Mobile Navigation Menu Toggle
+     3. Mobile Navigation Menu Toggle & Smooth Link Navigation
      -------------------------------------------------------------------------- */
   const initMobileNav = () => {
     const mobileBtn = document.getElementById('mobileToggle');
     const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const header = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-link, .nav-brand');
 
     if (!mobileBtn || !navMenu) return;
 
-    const toggleMenu = () => {
-      navMenu.classList.toggle('open');
+    const openMenu = () => {
+      navMenu.classList.add('open');
+      mobileBtn.setAttribute('aria-expanded', 'true');
       const icon = mobileBtn.querySelector('i');
       if (icon) {
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-xmark');
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+      }
+    };
+
+    const closeMenu = () => {
+      navMenu.classList.remove('open');
+      mobileBtn.setAttribute('aria-expanded', 'false');
+      const icon = mobileBtn.querySelector('i');
+      if (icon) {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      }
+    };
+
+    const toggleMenu = (e) => {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      if (navMenu.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
       }
     };
 
     mobileBtn.addEventListener('click', toggleMenu);
 
-    // Close menu when clicking any nav link
+    // Smooth navigation handler for all navigation links
     navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        if (navMenu.classList.contains('open')) {
-          toggleMenu();
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+
+        // Check if link is an in-page anchor
+        if (href && href.startsWith('#')) {
+          e.preventDefault(); // Handle smooth scrolling explicitly
+
+          const targetId = href.substring(1);
+          const targetElement = targetId ? document.getElementById(targetId) : null;
+
+          // Always close mobile menu when a link is clicked
+          closeMenu();
+
+          if (targetElement) {
+            const headerHeight = header ? header.offsetHeight : 70;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+            window.scrollTo({
+              top: Math.max(0, offsetPosition),
+              behavior: 'smooth'
+            });
+
+            // Update URL hash without causing an instant harsh jump
+            if (window.history && window.history.pushState) {
+              window.history.pushState(null, '', href);
+            }
+          } else if (href === '#home' || href === '#') {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+            if (window.history && window.history.pushState) {
+              window.history.pushState(null, '', '#home');
+            }
+          }
+        } else {
+          // External or non-hash link: close menu and allow normal navigation
+          closeMenu();
         }
       });
+    });
+
+    // Close menu when tapping outside (backdrop click)
+    document.addEventListener('click', (e) => {
+      if (
+        navMenu.classList.contains('open') &&
+        !navMenu.contains(e.target) &&
+        !mobileBtn.contains(e.target)
+      ) {
+        closeMenu();
+      }
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        closeMenu();
+      }
     });
   };
 

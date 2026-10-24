@@ -41,6 +41,7 @@ html {
   color: var(--text-primary);
   font-family: var(--font-body);
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -68,7 +69,6 @@ body {
   }
 }
 
-header,
 section,
 main,
 footer {
@@ -79,6 +79,7 @@ footer {
   margin: 0;
   outline: 1px solid transparent;
   overflow-x: clip;
+  scroll-margin-top: 80px;
 }
 
 /* Typography Auto-Translate Resilience */
@@ -130,6 +131,7 @@ button {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   transition: transform 0.35s var(--ease-smooth), background-color 0.3s ease, padding 0.3s ease;
   will-change: transform;
+  overflow: visible;
 }
 
 .header-nav.nav-hidden {
@@ -1048,6 +1050,9 @@ a.contact-text:hover {
 
   .nav-mobile-btn {
     display: block;
+    cursor: pointer;
+    z-index: 1001;
+    touch-action: manipulation;
   }
 
   .nav-menu {
@@ -1056,29 +1061,45 @@ a.contact-text:hover {
     left: 0;
     width: 100%;
     max-width: 100%;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
     box-sizing: border-box;
     background: rgba(10, 12, 16, 0.98);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-subtle);
-    padding: 20px;
+    padding: 20px 20px 30px;
     transform: translate3d(0, -120%, 0);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s var(--ease-spring), opacity 0.25s ease, visibility 0.25s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 999;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.8);
   }
 
   .nav-menu.open {
     transform: translate3d(0, 0, 0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .nav-menu .nav-list {
     flex-direction: column;
     width: 100%;
+    gap: 8px;
   }
 
   .nav-link {
     display: block;
     width: 100%;
     text-align: center;
-    padding: 12px;
+    padding: 14px 20px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .hero-grid {
